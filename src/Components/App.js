@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import {Routes, Route} from "react-router-dom";
 import '../styles/App.css';
+import {Sidebar} from "./Sidebar";
+import {MainScreen} from "./MainScreen";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar />
+      <Routes>
+        <Route path="/" element={<MainScreen />}/>
+        <Route path="/boxes" element={<MainScreen />}/>
+        <Route path="/clothes" element={<MainScreen />}/>
+        <Route path="/hats" element={<MainScreen />}/>
+        <Route path="/sinks" element={<MainScreen />}/>
+        <Route path="/space" element={<MainScreen />}/>
+        <Route path="/sunglasses" element={<MainScreen />}/>
+        <Route path="/ties" element={<MainScreen />}/>
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+.mainScreen{
+  width: 75vw;
+  height: 100vh;
+  overflow: scroll;
+  background: #c1c1c1;
+}
+.mainHeader{
+  color: white;
+  text-align: center;
+}
+.image{
+  margin:1%;
+  width: 30%;
+  height: 30%;
+  border-radius: 2%;
+}
+.addMore{
+  text-align: right;
+  color: white;
+  margin: 3%;
+  cursor: pointer;
+}
