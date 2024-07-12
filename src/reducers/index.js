@@ -1,8 +1,10 @@
 import {combineReducers} from "redux";
-import categoryReducer from "./categoryReducer";
-import imageReducer from "./imageReducer";
+import getDaily from "./getDaily";
+import getCurrent from "./getCurrent";
+import getCity from "./getCity";
 
 export default combineReducers({
-  images: imageReducer,
-  categories: categoryReducer,
+  current: getCurrent,
+  daily: getDaily,
+  city: getCity,
 });

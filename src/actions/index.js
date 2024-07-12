@@ -1,24 +1,27 @@
-import catApi from "../apis/catApi";
-import {ADD_IMAGES, FETCH_CATEGORIES, FETCH_IMAGES, SET_CATEGORY} from "./types";
+import weatherApi from "../apis/weatherApi";
+import { API_KEY } from "../Consts";
+import {GET_CURRENT, GET_DAILY, GET_CITY, GET_BY_LOCATION_CURRENT, GET_BY_LOCATION_DAILY} from "./types";
 
-export const fetchCategories = async () => {
-  const request = await catApi.get('/categories');
+export const getByLocationCurrent = async (lat, lon) => {
+  const request = await weatherApi.get(`/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
 
-  return({type: FETCH_CATEGORIES, payload: request.data});
+  return({type: GET_BY_LOCATION_CURRENT, payload: request.data});
 };
+export const getByLocationDaily = async (lat, lon) => {
+  const request = await weatherApi.get(`/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`);
 
-export const fetchImages = async (categoryId) => {
-  const request = await catApi.get(`images/search?limit=10&page=1&category_ids=${categoryId}`);
+  return({type: GET_BY_LOCATION_DAILY, payload: request.data});
+};
+export const getCurrent = async (city) => {
+  const request = await weatherApi.get(`/weather?q=${city}&units=metric&appid=${API_KEY}`);
 
-  return({type: FETCH_IMAGES, payload: request.data});
-}
+  return({type: GET_CURRENT, payload: request.data});
+};
+export const getDaily = async (city) => {
+  const request = await weatherApi.get(`/forecast?q=${city}&units=metric&appid=${API_KEY}`);
 
-export const addImages = async (categoryId) => {
-  const request = await catApi.get(`images/search?limit=10&page=1&category_ids=${categoryId}`);
-
-  return({type: ADD_IMAGES, payload: request.data});
-}
-
-export const setCategory = (id) => {
-  return ({type: SET_CATEGORY, payload: id});
-}
+  return({type: GET_DAILY, payload: request.data});
+};
+export const getCity = async (city) => {
+  return({type: GET_CITY, payload: city});
+};

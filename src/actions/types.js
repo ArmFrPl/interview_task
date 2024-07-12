@@ -1,4 +1,5 @@
-export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
-export const FETCH_IMAGES = 'FETCH_IMAGES';
-export const SET_CATEGORY = 'SET_CATEGORY';
-export const ADD_IMAGES = 'ADD_IMAGES';
+export const GET_CURRENT = 'GET_CURRENT';
+export const GET_DAILY = 'GET_DAILY';
+export const GET_CITY = 'GET_CITY';
+export const GET_BY_LOCATION_CURRENT = 'GET_BY_LOCATION_CURRENT';
+export const GET_BY_LOCATION_DAILY = 'GET_BY_LOCATION_DAILY';
